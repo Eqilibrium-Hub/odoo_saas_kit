@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="contract_creation_wizard_view" model="ir.ui.view">
+            <field name="name">contract.creation.wizard</field>
+            <field name="model">saas.contract.creation</field>
+            <field name="arch" type="xml">
+                <form string="Contract Creation">
+                    <sheet>
+                        <group>
+                        <group>
+                            <field name="plan_id" readonly="1" required="1"/>
+                            <!-- <field name="name"/> -->
+                            <field name="partner_id"/>
+<!--                            <field name="invoice_product_id"/>-->
+                            <field name="billing_criteria"/>
+<!--                            <label for="contract_rate" />-->
+<!--                            <div>-->
+<!--                                <field class="oe_inline" name="contract_rate" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>-->
+<!--                                <span class="oe_inline" attrs="{'invisible':[('billing_criteria','=','fixed')]}">-->
+<!--                                    per user-->
+<!--                                </span>-->
+<!--                            </div>-->
+                        </group>
+                        <group>
+                            <label for="recurring_interval" />
+                            <div>
+                                <field name="recurring_interval"
+                                    class="oe_inline"
+                                    required="True"
+                                    />
+                                <field name="recurring_rule_type"
+                                    class="oe_inline"
+                                    required="True"
+                                    />
+                            </div>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="pricelist_id" readonly="True"/>
+                            <field name="start_date"/>
+                            <field name="total_cycles" string="Total No. Of Cycles" required="1"/>
+                            <field name="trial_period" required="1"/>
+                            <field name="auto_create_invoice"/>
+                        </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Products">
+                                    <field name="product_ids"  string="Products">
+                                     <tree string="Products">
+                                        <field name="name" />
+                                        <field name="default_code" />
+                                        <field name="product_template_attribute_value_ids" widget="many2many_tags" groups="product.group_product_variant" />
+                                      </tree>
+                                    </field>
+                             </page>
+                        </notebook>
+
+
+
+                    </sheet>
+                    <footer>
+                        <button string='Create' name="action_create_contract" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_contract_creation" model="ir.actions.act_window">
+            <field name="name">SaaS Contract Creation</field>
+            <field name="res_model">saas.contract.creation</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="contract_creation_wizard_view"/>
+            <field name="context">{'default_plan_id': active_id}</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

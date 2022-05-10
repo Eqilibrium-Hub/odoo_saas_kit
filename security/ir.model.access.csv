@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_saas_server_manager,saas.server.manager,model_saas_server,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_server_all,access.saas.server.all,model_saas_server,,1,0,0,0
+access_saas_module_category_manager,saas.module.category.manager,model_saas_module_category,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_module_category_all,access.saas.module.category.all,model_saas_module_category,,1,0,0,0
+access_saas_plan_manager,saas.plan.manager,model_saas_plan,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_plan_all,access.saas.plan.all,model_saas_plan,,1,0,0,0
+access_saas_module_manager,access.saas.module.manager,model_saas_module,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_module_all,access.saas.module.all,model_saas_module,,1,0,0,0
+access_saas_contract_all,access.saas.contract.all,model_saas_contract,,1,0,0,0
+access_saas_contract_manager,saas.contract.manager,model_saas_contract,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_client_all,access.saas.client.all,model_saas_client,,1,0,0,0
+access_saas_client_manager,saas.client.manager,model_saas_client,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_module_status_all,access.saas.module.status.all,model_saas_module_status,,1,0,0,0
+access_saas_module_status_manager,saas.module.status.manager,model_saas_module_status,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_contract_creation,saas.contract.creation,model_saas_contract_creation,base.group_user,1,1,1,1

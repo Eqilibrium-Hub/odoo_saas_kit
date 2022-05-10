@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="client_disable_wizard_view" model="ir.ui.view">
+            <field name="name">client.disable.wizard</field>
+            <field name="model">saas.client.disable</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        Working
+                    </sheet>
+                    <footer>
+                        <button string='Yes' name="confirm_disable" type="object" class="btn-primary"/>
+                        <button string="No" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_client_disable_wizard" model="ir.actions.act_window">
+            <field name="name">Disable Client</field>
+            <field name="res_model">saas.client.disable</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="client_disable_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
